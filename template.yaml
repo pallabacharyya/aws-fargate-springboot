@@ -232,4 +232,4 @@ Outputs:
     Description: Employee API Endpoint
     Value: !Join ['', ['http://', !GetAtt LoadBalancer.DNSName, '/employees']]
     Export:
-      Name: 'EmployeeApiEndpoint'
+      Name: 'EmployeeFargateApiEndpoint'
