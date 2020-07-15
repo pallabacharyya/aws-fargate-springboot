@@ -11,7 +11,7 @@
     <groupId>com.polimetla.springboot</groupId>
     <artifactId>aws-spring-boot-docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>aws-ecs-springboot</name>
+    <name>aws-fargate-springboot</name>
     <description>Springboot application packed as Docker container to be deployed on AWS</description>
 
     <properties>
@@ -61,7 +61,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <finalName>aws-ecs-springboot</finalName>
+        <finalName>aws-fargate-springboot</finalName>
     </build>
 
 </project>
