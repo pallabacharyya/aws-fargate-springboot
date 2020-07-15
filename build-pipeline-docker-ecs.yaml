@@ -40,7 +40,7 @@ Resources:
                 Owner: !Ref RepositoryOwner
                 Repo: !Ref RepositoryName
                 Branch: !Ref RepositoryBranch
-                OAuthToken: "{{resolve:ssm:/github/polimetla_access_token:1}}" # Should be changed
+                OAuthToken: "32be253a5cc8dd61c61f6ad9d6d6bd49d2640ed1" # Should be changed
               OutputArtifacts:
               - Name: SourceOutput
         - Name: Build
