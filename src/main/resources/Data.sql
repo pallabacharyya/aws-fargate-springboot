@@ -6,3 +6,5 @@ CREATE TABLE Employee (
   lastName VARCHAR(250) NOT NULL,
   age INT
 );
+
+INSERT INTO Employee(firstName,lastName,age) values("Mahamaya","Deva",1);
