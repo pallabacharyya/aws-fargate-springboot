@@ -9,7 +9,7 @@ Parameters:
   RepositoryOwner:
     Type: String
     Description: The owner of the GitHub repository.
-    Default: S-Polimetla
+    Default: pallabacharyya
   RepositoryName:
     Type: String
     Description: The name of the GitHub repository.
