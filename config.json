@@ -1,6 +1,6 @@
 {
   "Parameters": {
-    "DockerImageRepository": "employee-ecs-image",
+    "DockerImageRepository": "employee-fargate-image",
     "ImageTag": "latest"
   }
 }
