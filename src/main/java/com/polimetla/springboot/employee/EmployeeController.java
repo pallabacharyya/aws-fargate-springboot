@@ -18,7 +18,7 @@ public class EmployeeController {
     
     @RequestMapping("/home")
     public String getHomePage() {
-        return "Welcome to AWS Fargate Portal"
+        return "Welcome to AWS Fargate Portal";
     }
 
     @RequestMapping("/employee/{employeeId}")
