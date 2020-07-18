@@ -24,6 +24,10 @@ public class EmployeeController {
     
     @RequestMapping("/home")
     public String getHomePage() {
+          System.out.println("*******************************************Inside Home page");
+        System.out.println("******************************************");
+        System.out.println("******************************************");
+        System.out.println("******************************************");
         return "Welcome to AWS Fargate Portal";
     }
 
