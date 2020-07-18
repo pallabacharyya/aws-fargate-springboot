@@ -19,6 +19,7 @@ public class EmployeeController {
          } catch(Exception ex){
             ex.printStackTrace();
         }
+        return;
     }
     
     @RequestMapping("/home")
@@ -34,6 +35,7 @@ public class EmployeeController {
          } catch(Exception ex){
             ex.printStackTrace();
         }
+         return;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/employee")
@@ -44,6 +46,7 @@ public class EmployeeController {
         } catch(Exception ex){
             ex.printStackTrace();
         }
+         return;
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/employee/{employeeId}")
@@ -54,6 +57,7 @@ public class EmployeeController {
              } catch(Exception ex){
             ex.printStackTrace();
         }
+         return;
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/employee/{employeeId}")
@@ -64,5 +68,6 @@ public class EmployeeController {
              } catch(Exception ex){
             ex.printStackTrace();
         }
+         return;
     }
 }
