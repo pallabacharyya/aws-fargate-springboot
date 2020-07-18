@@ -15,6 +15,11 @@ public class EmployeeController {
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
+    
+    @RequestMapping("/home")
+    public String getHomePage() {
+        return "Welcome to AWS Fargate Portal"
+    }
 
     @RequestMapping("/employee/{employeeId}")
     public Employee getEmployeeById(@PathVariable int employeeId) {
