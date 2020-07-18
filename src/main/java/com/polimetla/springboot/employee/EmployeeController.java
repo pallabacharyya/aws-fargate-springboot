@@ -13,7 +13,12 @@ public class EmployeeController {
 
     @RequestMapping("/employee")
     public List<Employee> getAllEmployees() {
-        return employeeService.getAllEmployees();
+         System.out.println("Inside get All employee method");
+        try{
+            return employeeService.getAllEmployees();
+         } catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
     
     @RequestMapping("/home")
@@ -23,21 +28,41 @@ public class EmployeeController {
 
     @RequestMapping("/employee/{employeeId}")
     public Employee getEmployeeById(@PathVariable int employeeId) {
+        System.out.println("Inside get method employeeid");
+        try{
         return employeeService.getEmployeeById(employeeId);
+         } catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/employee")
     public void createEmployee(@RequestBody Employee employee) {
-        employeeService.createEmployee(employee);
+        System.out.println("Inside post method");
+        try{
+            employeeService.createEmployee(employee);
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/employee/{employeeId}")
     public void updateEmployee(@RequestBody Employee employee, @PathVariable int employeeId) {
-        employeeService.updateEmployee(employee, employeeId);
+         System.out.println("Inside update method");
+        try{
+                employeeService.updateEmployee(employee, employeeId);
+             } catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/employee/{employeeId}")
     public void deleteEmployee(@PathVariable int employeeId) {
-        employeeService.deleteEmployee(employeeId);
+         System.out.println("Inside delete method");
+        try{
+                 employeeService.deleteEmployee(employeeId);
+             } catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 }
