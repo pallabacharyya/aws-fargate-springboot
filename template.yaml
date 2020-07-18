@@ -72,12 +72,12 @@ Resources:
   ECSCluster:
     Type: AWS::ECS::Cluster
     Properties:
-      ClusterName: 'EmployeeApi'
+      ClusterName: 'EmployeeFargateApi'
 
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Name: ecs-services
+      Name: ecs-fargateservices
       Subnets:
         - !Ref 'Subnet1'
         - !Ref 'Subnet2'
@@ -155,7 +155,7 @@ Resources:
     Type: AWS::ECS::Service
     DependsOn: ListenerRule
     Properties:
-      ServiceName: employee-service
+      ServiceName: employee-fargatePal-service
       TaskDefinition: !Ref Task
       Cluster: !Ref ECSCluster
       LaunchType: FARGATE
@@ -179,7 +179,7 @@ Resources:
   TargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
-      Name: employee-tg
+      Name: employee-fargate-tg
       VpcId: !Ref VPC
       Port: 80
       Protocol: HTTP
@@ -232,4 +232,4 @@ Outputs:
     Description: Employee API Endpoint
     Value: !Join ['', ['http://', !GetAtt LoadBalancer.DNSName, '/employee']]
     Export:
-      Name: 'EmployeeFargateApiEndpoint'
+      Name: 'EmployeeFargatePalApiEndpoint'
