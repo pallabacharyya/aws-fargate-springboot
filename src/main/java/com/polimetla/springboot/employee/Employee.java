@@ -10,12 +10,12 @@ public class Employee {
     private String firstName;
     private String lastName;
     private int age;
-    private Gender gender;
+    private String gender;
 
     public Employee() {
     }
 
-    public Employee(int employeeId, String firstName, String lastName, int age, Gender gender) {
+    public Employee(int employeeId, String firstName, String lastName, int age, String gender) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -55,11 +55,11 @@ public class Employee {
         this.age = age;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 }
