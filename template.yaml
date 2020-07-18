@@ -114,7 +114,7 @@ Resources:
   CloudWatchLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: 'employee-api'
+      LogGroupName: 'employee-fargate-api'
       RetentionInDays: 1
 
   ContainerSecurityGroup:
@@ -137,7 +137,7 @@ Resources:
         - FARGATE
       ExecutionRoleArn: !Ref ECSTaskExecutionRole
       ContainerDefinitions:
-        - Name: employee-api
+        - Name: employee-fargate-api
           Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DockerImageRepository}:${ImageTag}
           Cpu: 1024
           Memory: 2048
@@ -147,9 +147,9 @@ Resources:
           LogConfiguration:
             LogDriver: awslogs
             Options:
-              awslogs-group: 'employee-api'
+              awslogs-group: 'employee-fargate-api'
               awslogs-region: !Ref AWS::Region
-              awslogs-stream-prefix: 'employee-api'
+              awslogs-stream-prefix: 'employee-fargate-api'
 
   Service:
     Type: AWS::ECS::Service
@@ -172,7 +172,7 @@ Resources:
           SecurityGroups:
             - !Ref ContainerSecurityGroup
       LoadBalancers:
-        - ContainerName: employee-api
+        - ContainerName: employee-fargate-api
           ContainerPort: 8080
           TargetGroupArn: !Ref TargetGroup
 
