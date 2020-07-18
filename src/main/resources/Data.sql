@@ -4,7 +4,8 @@ CREATE TABLE Employee (
   employeeId INT AUTO_INCREMENT  PRIMARY KEY,
   firstName VARCHAR(250) NOT NULL,
   lastName VARCHAR(250) NOT NULL,
-  age INT
+  age INT,
+  gender VARCHAR(250)
 );
 
-INSERT INTO Employee(firstName,lastName,age) values("Mahamaya","Deva",1);
+INSERT INTO Employee(firstName,lastName,age) values("Mahamaya","Deva",1,"Male");
