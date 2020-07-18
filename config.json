@@ -1,6 +1,6 @@
 {
   "Parameters": {
-    "DockerImageRepository": "employee-fargatePal-image",
+    "DockerImageRepository": "employee-fargatepal-image",
     "ImageTag": "latest"
   }
 }
