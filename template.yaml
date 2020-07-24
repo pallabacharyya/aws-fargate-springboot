@@ -72,7 +72,7 @@ Resources:
   ECSCluster:
     Type: AWS::ECS::Cluster
     Properties:
-      ClusterName: 'EmployeeFargateApi'
+      ClusterName: !Sub ${DockerImageRepository}-${ImageTag}-cluster
 
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -114,7 +114,7 @@ Resources:
   CloudWatchLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: 'employee-fargate-api'
+      LogGroupName: !Sub ${DockerImageRepository}-${ImageTag}-logGroup
       RetentionInDays: 1
 
   ContainerSecurityGroup:
@@ -147,15 +147,15 @@ Resources:
           LogConfiguration:
             LogDriver: awslogs
             Options:
-              awslogs-group: 'employee-fargate-api'
+              awslogs-group: !Sub ${DockerImageRepository}-${ImageTag}-awslogs-group
               awslogs-region: !Ref AWS::Region
-              awslogs-stream-prefix: 'employee-fargate-api'
+              awslogs-stream-prefix: !Sub ${DockerImageRepository}-${ImageTag}-awslogs-froup
 
   Service:
     Type: AWS::ECS::Service
     DependsOn: ListenerRule
     Properties:
-      ServiceName: employee-fargatePal-service
+      ServiceName: !Sub ${DockerImageRepository}-${ImageTag}-service
       TaskDefinition: !Ref Task
       Cluster: !Ref ECSCluster
       LaunchType: FARGATE
@@ -172,7 +172,7 @@ Resources:
           SecurityGroups:
             - !Ref ContainerSecurityGroup
       LoadBalancers:
-        - ContainerName: employee-fargate-api
+        - ContainerName: !Sub ${DockerImageRepository}-${ImageTag}-container
           ContainerPort: 8080
           TargetGroupArn: !Ref TargetGroup
 
