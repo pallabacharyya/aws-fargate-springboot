@@ -134,7 +134,8 @@ Resources:
         - FARGATE
       ExecutionRoleArn: !Ref ECSTaskExecutionRole
       ContainerDefinitions:
-        - Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DockerImageRepository}:${ImageTag}
+        - Name: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DockerImageRepository}:${ImageTag}-api
+          Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DockerImageRepository}:${ImageTag}
           Cpu: 1024
           Memory: 2048
           PortMappings:
