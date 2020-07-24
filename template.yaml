@@ -71,13 +71,11 @@ Resources:
 
   ECSCluster:
     Type: AWS::ECS::Cluster
-    Properties:
-      ClusterName: !Sub ${DockerImageRepository}-${ImageTag}-cluster
+    
 
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Name: ecs-fargateservices
       Subnets:
         - !Ref 'Subnet1'
         - !Ref 'Subnet2'
@@ -114,8 +112,7 @@ Resources:
   CloudWatchLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: !Sub ${DockerImageRepository}-${ImageTag}-logGroup
-      RetentionInDays: 1
+     RetentionInDays: 1
 
   ContainerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -137,7 +134,6 @@ Resources:
         - FARGATE
       ExecutionRoleArn: !Ref ECSTaskExecutionRole
       ContainerDefinitions:
-        - Name: employee-fargate-api
           Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DockerImageRepository}:${ImageTag}
           Cpu: 1024
           Memory: 2048
@@ -172,14 +168,12 @@ Resources:
           SecurityGroups:
             - !Ref ContainerSecurityGroup
       LoadBalancers:
-        - ContainerName: !Sub ${DockerImageRepository}-${ImageTag}-container
           ContainerPort: 8080
           TargetGroupArn: !Ref TargetGroup
 
   TargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
-      Name: employee-fargate-tg
       VpcId: !Ref VPC
       Port: 80
       Protocol: HTTP
