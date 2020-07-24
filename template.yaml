@@ -167,7 +167,8 @@ Resources:
           SecurityGroups:
             - !Ref ContainerSecurityGroup
       LoadBalancers:
-        - ContainerPort: 8080
+        - ContainerName: employee-apiwww
+          ContainerPort: 8080
           TargetGroupArn: !Ref TargetGroup
 
   TargetGroup:
