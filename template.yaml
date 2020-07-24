@@ -133,7 +133,7 @@ Resources:
         - FARGATE
       ExecutionRoleArn: !Ref ECSTaskExecutionRole
       ContainerDefinitions:
-        - Name: employee-apinew
+        - Name: !Sub ${DockerImageRepository}-${ImageTag}
           Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DockerImageRepository}:${ImageTag}
           Cpu: 1024
           Memory: 2048
@@ -167,7 +167,7 @@ Resources:
           SecurityGroups:
             - !Ref ContainerSecurityGroup
       LoadBalancers:
-        - ContainerName: employee-apiwww
+        - ContainerName: !Sub ${DockerImageRepository}-${ImageTag}
           ContainerPort: 8080
           TargetGroupArn: !Ref TargetGroup
 
