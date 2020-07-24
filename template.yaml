@@ -104,7 +104,6 @@ Resources:
   DefaultTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
-      Name: default
       VpcId: !Ref 'VPC'
       Protocol: 'HTTP'
       Port: '80'
