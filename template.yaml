@@ -111,6 +111,7 @@ Resources:
   CloudWatchLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:
+     LogGroupName: !Sub ${DockerImageRepository}-${ImageTag}-awslogs-group
      RetentionInDays: 1
 
   ContainerSecurityGroup:
