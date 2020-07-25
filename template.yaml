@@ -145,7 +145,7 @@ Resources:
             Options:
               awslogs-group: !Sub ${DockerImageRepository}-${ImageTag}-awslogs-group
               awslogs-region: !Ref AWS::Region
-              awslogs-stream-prefix: !Sub ${DockerImageRepository}-${ImageTag}-awslogs-froup
+              awslogs-stream-prefix: !Sub ${DockerImageRepository}-${ImageTag}-awslogs-group
 
   Service:
     Type: AWS::ECS::Service
