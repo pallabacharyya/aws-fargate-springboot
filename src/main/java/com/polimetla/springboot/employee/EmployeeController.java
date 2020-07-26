@@ -27,7 +27,7 @@ public class EmployeeController {
           System.out.println("*******************************************Inside Home page");
         System.out.println("******************************************");
         System.out.println("******************************************");
-        System.out.println("******************************************");
+        System.out.println("**************check****************************");
         return "Welcome to AWS Fargate Portal";
     }
 
